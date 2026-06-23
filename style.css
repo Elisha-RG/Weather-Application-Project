@@ -51,16 +51,37 @@ header {
   line-height: 48px;
 }
 
-.details {
+.weather-details {
   font-size: 16px;
   color: rgba(39, 33, 66, 0.4);
   line-height: 24px;
   font-weight: 500;
 }
 
-.details strong {
+.weather-details strong {
   color: #f65282;
 }
+
+.specified-temperature {
+  display: flex;
+}
+
+.temperature-icon {
+  font-size: 44px;
+  margin-top: 22px;
+}
+
+.actual-temperature {
+  font-size: 88px;
+  margin-left: 10px;
+  font-weight: bold;
+}
+
+.temperature-unit {
+  margin-top: 19px;
+  font-size: 28px;
+}
+
 footer {
   border-top: 1px solid #f9f7fe;
   padding: 30px 0 0 0;
