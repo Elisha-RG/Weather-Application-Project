@@ -67,18 +67,18 @@ header {
 }
 
 .temperature-icon {
-  font-size: 44px;
-  margin-top: 22px;
+  width: 88px;
+  height: 88px;
 }
 
 .actual-temperature {
   font-size: 88px;
-  margin-left: 10px;
+  line-height: 88px;
   font-weight: bold;
 }
 
 .temperature-unit {
-  margin-top: 19px;
+  margin-top: 6px;
   font-size: 28px;
 }
 
