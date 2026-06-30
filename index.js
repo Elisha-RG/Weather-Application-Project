@@ -16,6 +16,8 @@ function updateWeather(response) {
   windSpeed.innerHTML = `${response.data.wind.speed} km/h`;
   temperatureValue.innerHTML = Math.round(temperature);
   updateIcon.innerHTML = `<img src="${response.data.condition.icon_url}" class = "temperature-icon" />`;
+
+  displayForecast(response.data.city);
 }
 
 function formatDate(date) {
@@ -40,17 +42,23 @@ function formatDate(date) {
   return `${day} ${hours}:${minutes}`;
 }
 
+function beginSearch(event) {
+  event.preventDefault();
+  let searchInput = document.querySelector("#search-form-input");
+
+  findCity(searchInput.value);
+}
+
 function findCity(city) {
   let apiKey = "7841011o26476aa4cefbe36669ffb9tf";
   let apiURL = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
   axios.get(apiURL).then(updateWeather);
 }
 
-function beginSearch(event) {
-  event.preventDefault();
-  let searchInput = document.querySelector("#search-form-input");
-
-  findCity(searchInput.value);
+function showForecast(city) {
+  let apiKey = "7841011o26476aa4cefbe36669ffb9tf";
+  let apiURL = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=metric`;
+  axios(apiURL).then(displayForecast);
 }
 
 function displayForecast() {
@@ -82,5 +90,3 @@ let searchFormElement = document.querySelector("#search-form");
 searchFormElement.addEventListener("submit", beginSearch);
 
 findCity("Munich");
-
-displayForecast();
